@@ -10,7 +10,7 @@
 		    <div class="card-body">
 		
 		<div class="container">
-			<form th:object="${clientes}">
+			<form th:action="@{/views/clientes/save}" th:object="${clientes}" method="post">
 				<div class="mb-3">
 					<label for="nombres" class="col-md-2" >Nombres: </label>
 					<input type="text" th:field="*{nombres}" class="form-control form-control-sm col-md-6" id="nombres" placeholder="Por favor ingresar el nombre del usuario" aria-describedby="emailHelp">

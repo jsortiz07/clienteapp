@@ -5,9 +5,18 @@
 	<body>
 		<header th:replace="plantilla/template :: header"></header>
 		
-		
+		<div class="container">
+			<h1 th:text="${titulo}"></h1>
+		</div>
 		
 		<div class="container">
+			<a class="btn btn-primary tbn-sm" th:href="@{/views/clientes/create}"
+			th:text="'Nuevo cliente'" title="Crear nuevo cliente">
+				
+			</a>
+			
+			
+			
 			<table class="table">
 			<thead>
 				<tr>
