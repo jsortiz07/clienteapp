@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="plantilla/template :: head">
+	</head>
+	<body>
+		<header th:replace="plantilla/template :: header"></header>
+		
+		<div class="card">
+			<div class="card-header bg-dark text-white" th:text="${titulo}"></div>
+		    <div class="card-body">
+		
+		<div class="container">
+			<form th:object="${clientes}">
+				<div class="mb-3">
+					<label for="nombres" class="col-md-2" >Nombres: </label>
+					<input type="text" th:field="*{nombres}" class="form-control form-control-sm col-md-6" id="nombres" placeholder="Por favor ingresar el nombre del usuario" aria-describedby="emailHelp">
+
+				</div>
+				
+				<div class="mb-3">
+					<label for="apellidos" class="col-md-2">Apellidos: </label>
+					<input type="text" th:field="*{apellidos}" class="form-control form-control-sm col-md-6" id="apellidos" placeholder="Por favor ingresar los apellidos del usuario" aria-describedby="emailHelp">
+
+				</div>
+				
+				<div class="mb-3">
+					<label for="telefono" class="col-md-2">Telefono: </label>
+					<input type="text" th:field="*{telefono}" class="form-control form-control-sm col-md-6" id="telefono" placeholder="Por favor ingresar el telefono del usuario" aria-describedby="emailHelp">
+
+				</div>
+				
+				<div class="mb-3">
+					<label for="email" class="col-md-2">Email: </label>
+					<input type="text" th:field="*{email}" class="form-control form-control-sm col-md-6" id="email" placeholder="Por favor ingresar el correo  del usuario" aria-describedby="emailHelp">
+
+				</div>
+				
+				<div class="mb-3">
+					<label for="ciudad" class="col-md-2">Ciudad: </label>
+					<select class="form-control form-control-sm col-md-6" th:field="*{ciudad}" id="ciudad">
+						<option th:each="ciudad : ${ciudades}"
+							th:value="${ciudad.id}"
+							th:text="${ciudad.ciudad}"
+						/>
+					</select>
+				</div>
+				
+				<div class="card-footer bg-dark">
+					<input type="submit" class="btn btn-primary btn-sm" value="Guardar" />
+				</div>
+				
+				
+			</form>
+			
+			</div>
+		
+		
+		</div>
+			
+		</div>
+		
+		
+		
+		<footer th:replace="plantilla/template :: footer">
+			
+		</footer>
+		
+		
+	</body>	
+	
+	
+	
+</html>
