@@ -9,6 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 
 
 @Entity
@@ -22,9 +26,15 @@ public class Cliente implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@NotNull(message = "No puede quedar vacio")
 	private String nombres;
+	@NotEmpty
 	private String apellidos;
+	@NotEmpty
 	private String telefono;
+	@NotEmpty
+	@Email
 	private String email;
 	
 	@ManyToOne

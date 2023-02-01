@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-	<head th:replace="plantilla/template :: head">
-	</head>
-	<body>
-		<header th:replace="plantilla/template :: header"></header>
-		
-		<div class="container">
-			<h1 th:text="${titulo}"></h1>
-		</div>
-		
-		<div class="container">
-			<a class="btn btn-primary tbn-sm" th:href="@{/views/clientes/create}"
-			th:text="'Nuevo cliente'" title="Crear nuevo cliente">
-				
-			</a>
-			
-			
-			
-			<table class="table">
+
+<head th:replace="plantilla/template :: head">
+</head>
+
+<body>
+	<header th:replace="plantilla/template :: header"></header>
+
+	<div class="container">
+		<h1 th:text="${titulo}"></h1>
+	</div>
+
+	<div class="container">
+		<a class="btn btn-primary tbn-sm" th:href="@{/views/clientes/create}" th:text="'Nuevo cliente'"
+			title="Crear nuevo cliente">
+
+		</a>
+
+
+
+		<table class="table">
 			<thead>
 				<tr>
 					<th scope="col">ID</th>
@@ -26,32 +28,44 @@
 					<th scope="col">TELEFONO</th>
 					<th scope="col">CORREO</th>
 					<th scope="col">CIUDAD</th>
+					<th scope="col"></th>
+					<th scope="col"></th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="cliente : ${clientes} ">
-					<th scope="row" th:text ="${cliente.id}"></th>
-					<td th:text ="${cliente.nombres}"></td>
-					<td th:text ="${cliente.apellidos}"></td>
-					<td th:text ="${cliente.telefono}"></td>
-					<td th:text ="${cliente.email}"></td>
-					<td th:text ="${cliente.ciudad.ciudad}"></td>
+					<th scope="row" th:text="${cliente.id}"></th>
+					<td th:text="${cliente.nombres}"></td>
+					<td th:text="${cliente.apellidos}"></td>
+					<td th:text="${cliente.telefono}"></td>
+					<td th:text="${cliente.email}"></td>
+					<td th:text="${cliente.ciudad.ciudad}"></td>
+					<td>
+						<a class="btn btn-primary tbn-sm" th:href="@{/views/clientes/edit/} + ${cliente.id}" th:text="'Editar'"
+							title="Editar cliente">
+						</a>
+					</td>
+					<td>
+						<a class="btn btn-danger tbn-sm" th:href="@{/views/clientes/delete/} + ${cliente.id}" th:text="'Eliminar'"
+							title="Eliminar cliente" onclick="return confirm('Esta seguro de eliminar el cliente')">
+						</a>
+					</td>
 				</tr>
-				
+
 			</tbody>
 		</table>
-			
-		</div>
-		
-		
-		
-		
-		
-		
-	</body>	
-	
-	<footer th:replace="plantilla/template :: footer">
-			
-		</footer>
-	
+
+	</div>
+
+
+
+
+
+
+</body>
+
+<footer th:replace="plantilla/template :: footer">
+
+</footer>
+
 </html>
