@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="plantilla/template :: head">
+</head>
+
+<body>
+	<header th:replace="plantilla/template :: header"></header>
+
+	<div class="container text-center py-3">
+
+		<div class="panel bg-light">
+			<div class="panel-heading">
+				<h3 class="panel-title text-danger">
+					<span th:text="${error}"></span> - <span th:text="${status}"></span> <!--	 esta linea nos permite traer el estado y error en la vista-->
+					
+				</h3>
+			</div>
+			<div class="panel-body">
+				<img th:src="@{/images/error.jpeg}">
+				<br>
+				<h4>Ha hecho una solicitud incorrecta</h4>
+				<br>
+				<button class="btn btn-success" onclick="goBack()">Regresar</button>
+			</div>
+
+		</div>
+	</div>
+
+
+
+
+
+
+</body>
+
+	<footer th:replace="plantilla/template :: footer"></footer>
+
+		<script>
+			function goBack(){
+				window.history.back();  <!--solo funciona si existe una página anterior-->
+			}
+			
+		
+		</script>
+
+</html>
